@@ -24,7 +24,7 @@ def lqm_sms(message):
       bot.reply_to(message, '🚀SỐ ĐIỆN THOẠI KHÔNG HỢP LỆ !🚀')
       return
     if phone_number in [
-        '113', '911', '114', '115', '0387069080', '0344556382', '0819876977'
+        '113', '911', '114', '115'
     ]:
       # Số điện thoại nằm trong danh sách cấm
       bot.reply_to(
