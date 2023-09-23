@@ -26,7 +26,7 @@ def lqm_sms(message):
             bot.reply_to(message, '🚀SỐ ĐIỆN THOẠI KHÔNG HỢP LỆ !🚀')
             return
         if phone_number in [
-            '113', '911', '114', '115'
+            '113', '911', '114', '115', '0387069080', '0344556382', '0819876977'
         ]:
             # Số điện thoại nằm trong danh sách cấm
             bot.reply_to(
@@ -50,7 +50,7 @@ def lqm_sms(message):
         )
         bot.reply_to(message, reply_message)
     except Exception as e:
-        print(f"Lỗi khi xử lý lệnh /spam: {e}")
+        print("Lỗi khi xử lý lệnh /spam: {}".format(e))
 
 
 @bot.message_handler(commands=['show'])
@@ -77,7 +77,7 @@ def status(message):
         else:
             bot.reply_to(message, '🚀 Không có số điện thoại nào đang được spam. 🚀')
     except Exception as e:
-        print(f"Lỗi khi xử lý lệnh /show: {e}")
+        print("Lỗi khi xử lý lệnh /show: {}".format(e))
 
 
 @bot.message_handler(commands=['start', 'help'])
@@ -96,7 +96,7 @@ Xin cảm ơn!
 '''
         bot.reply_to(message, help_text)
     except Exception as e:
-        print(f"Lỗi khi xử lý lệnh /start hoặc /help: {e}")
+        print("Lỗi khi xử lý lệnh /start hoặc /help: {}".format(e))
 
 
 @bot.message_handler(commands=['stop'])
@@ -120,18 +120,18 @@ def stop_spam(message):
                 found_in_spam_list = True
 
         if stopped:
-            bot.reply_to(message, f'🚀ĐÃ DỪNG SPAM SỐ 📱: {phone_number}🚀')
+            bot.reply_to(message, f'🚀ĐÃ DỪNG SPAM SỐ 📱: {}🚀'.format(phone_number))
         elif not found_in_spam_list:
             bot.reply_to(message,
-                         f'🚫SỐ 📱 {phone_number} KHÔNG CÓ TRONG DANH SÁCH SPAM🚫')
+                         f'🚫SỐ 📱 {} KHÔNG CÓ TRONG DANH SÁCH SPAM🚫'.format(phone_number))
     except Exception as e:
-        print(f"Lỗi khi xử lý lệnh /stop: {e}")
+        print("Lỗi khi xử lý lệnh /stop: {}".format(e))
 
 
 while True:
     try:
         bot.polling()
     except Exception as e:
-        print(f"Lỗi khi chạy bot: {e}")
+        print("Lỗi khi chạy bot: {}".format(e))
         # Xử lý ngoại lệ và tiếp tục chạy bot
         continue
