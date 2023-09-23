@@ -1,7 +1,12 @@
+# -*- coding: utf-8 -*-
+
 import telebot
 import os
 import subprocess
 from keep_alive import keep_alive
+
+# Rest of your code...
+
 
 keep_alive()
 
