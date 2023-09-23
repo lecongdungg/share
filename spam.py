@@ -64,7 +64,7 @@ def status(message):
                     phone_number = process.args[2]
                     delay = process.args[3]
                     status_list.append(
-                        f'{index}. 📱 Số điện thoại: {phone_number}, Số lượng api: {delay}'
+                        '{}. 📱 Số điện thoại: {}, Số lượng api: {}'.format(index, phone_number, delay)
                     )
                     index += 1
 
@@ -120,10 +120,9 @@ def stop_spam(message):
                 found_in_spam_list = True
 
         if stopped:
-            bot.reply_to(message, f'🚀ĐÃ DỪNG SPAM SỐ 📱: {}🚀'.format(phone_number))
+            bot.reply_to(message, '🚀ĐÃ DỪNG SPAM SỐ 📱: {}🚀'.format(phone_number))
         elif not found_in_spam_list:
-            bot.reply_to(message,
-                         f'🚫SỐ 📱 {} KHÔNG CÓ TRONG DANH SÁCH SPAM🚫'.format(phone_number))
+            bot.reply_to(message, '🚫SỐ 📱 {} KHÔNG CÓ TRONG DANH SÁCH SPAM🚫'.format(phone_number))
     except Exception as e:
         print("Lỗi khi xử lý lệnh /stop: {}".format(e))
 
